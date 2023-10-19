@@ -4,37 +4,30 @@ const Header = () => {
   const menmu = (
     <>
       <span className="text-xl uppercase font-bold mr-6">
-        
-        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </span>
+      
       <span className="text-xl uppercase font-bold mr-6">
-        
-        <NavLink to="/show-products">Products</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        
         <NavLink to="/add-product">Add Product</NavLink>
       </span>
+      
       <span className="text-xl uppercase font-bold mr-6">
-        
-        <NavLink to="/brandsPage">Brands</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        
         <NavLink to="/my-cart">My Cart</NavLink>
       </span>
       <span className="text-xl uppercase font-bold mr-6">
-        
+        <NavLink to="/brandsPage">Brands</NavLink>
+      </span>
+      <span className="text-xl uppercase font-bold mr-6">
+        <NavLink to="/show-products">Products</NavLink>
+      </span>
+      <span className="text-xl uppercase font-bold mr-6">
         <NavLink to="/Login">Login</NavLink>
       </span>
-      
     </>
   );
 
   return (
     <div>
-
-
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -62,7 +55,11 @@ const Header = () => {
             </ul>
           </div>
           <a className="btn btn-ghost normal-case text-xl">
-            <img className=" w-32 " src="https://i.ibb.co/t2KY0Sw/bg-remove.png" alt="logo" />
+            <img
+              className=" w-32 "
+              src="https://i.ibb.co/t2KY0Sw/bg-remove.png"
+              alt="logo"
+            />
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -77,4 +74,3 @@ const Header = () => {
 };
 
 export default Header;
-

@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <Layout1Page />,
         children: [
             {
-                path: "/home",
+                path: "/",
                 element: <HomePage />,
                 loader : async()=> await fetch('http://localhost:5000/brands')
             },
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: "/products/:name",
                 element: <ShowBrandsProducts></ShowBrandsProducts>,
-               
+               loader: ({params})=> fetch(`http://localhost:5000/products/${params.name}`)
             }
         ]
 

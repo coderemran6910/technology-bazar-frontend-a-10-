@@ -1,4 +1,5 @@
 import {useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { ProductsProvider } from "../Provider/ProductsProvider";
 // import Swal from "sweetalert2";
 
@@ -7,21 +8,20 @@ const SingleBrand = ({ product }) => {
 
   const [brandProducts, setBrandProducts] =useState({})
   // const allProducts = useContext(ProductsProvider)
-   
+  const navigate = useNavigate()
 
 
 
 
   const handleBrand =(name)=>{
-
-    console.log(name);
-
     fetch(`http://localhost:5000/products/${name}`)
     .then(res => res.json())
     .then((data) => {
       console.log(data);
       setBrandProducts(data);
+      navigate(`/products/${name}`);
     })
+
 
 
   }
