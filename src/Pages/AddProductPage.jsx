@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Swal from "sweetalert2";
+import BrandsPage from "./BrandsPage";
 
 const AddProductPage = () => {
-  const [selectedRating, setSelectedRating] = useState(''); 
+  const [selectedRatings, setSelectedRating] = useState(''); 
 
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ const AddProductPage = () => {
     const brand = form.brand.value;
     const type = form.type.value;
     const price = form.price.value;
-    const shortDesciption = form.type.value;
+    const shortDescription = form.shortDesciption.value;
     const image = form.image.value;
 
     // Get the selected rating value
@@ -28,7 +29,7 @@ const AddProductPage = () => {
       
     });
 
-    const newProduct = {name, brand, type, price, selectedRating, shortDesciption, image};
+    const newProduct = {name, brand, type, price, selectedRating, shortDescription, image};
  
 
 
@@ -96,11 +97,12 @@ const AddProductPage = () => {
               <span className="label-text">Choose a Type</span>
             </label>
             <select name="type" className="select select-bordered w-full ">
-              <option value="merge">Mobile</option>
-              <option value="bubble">Computer</option>
-              <option value="insertion">Laptop</option>
-              <option value="insertion">Headphone</option>
-              <option value="quick">Quick Sort</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Computer">Computer</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Headphone">Headphone</option>
+              <option value="Camra">Camra</option>
+              <option value="Non Type ">Quick Sort</option>
             </select>
           </div>
 
@@ -110,13 +112,15 @@ const AddProductPage = () => {
             </label>
             <select name="brand" className="select select-bordered w-full">
               <option value="Apple">Apple</option>
+              <option value="Apple">Oppo</option>
               <option value="Samsung">Samsung</option>
-              <option value="Dell">Dell</option>
+              <option value="Lava">Dell</option>
               <option value="intel">intel</option>
-              <option value="Asus">Asus</option>
+              <option value="Asus">Acer</option>
               <option value="Hp">Hp</option>
               <option value="Lenovo">Lenovo</option>
-              <option value="quick">Quick Sort</option>
+              <option value="Sony">Sony</option>
+              <option value="non brand">Quick Sort</option>
             </select>
           </div>
         
@@ -130,7 +134,7 @@ const AddProductPage = () => {
             <textarea
               placeholder="Short Description"
               className="input input-bordered w-full"
-              name="shortDesciption"
+              name="shortDescription"
             ></textarea>
           </div>
 

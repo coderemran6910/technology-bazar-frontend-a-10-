@@ -4,21 +4,30 @@ const Header = () => {
   const menmu = (
     <>
       <span className="text-xl uppercase font-bold mr-6">
-        {" "}
-        <NavLink to="/">Home</NavLink>{" "}
+        
+        <NavLink to="/home">Home</NavLink>
       </span>
       <span className="text-xl uppercase font-bold mr-6">
-        {" "}
-        <NavLink to="/add-product">Add Product</NavLink>{" "}
+        
+        <NavLink to="/show-products">Products</NavLink>
       </span>
       <span className="text-xl uppercase font-bold mr-6">
-        {" "}
-        <NavLink to="/my-cart">My Cart</NavLink>{" "}
+        
+        <NavLink to="/add-product">Add Product</NavLink>
       </span>
       <span className="text-xl uppercase font-bold mr-6">
-        {" "}
-        <NavLink to="/Login">Login</NavLink>{" "}
+        
+        <NavLink to="/brandsPage">Brands</NavLink>
       </span>
+      <span className="text-xl uppercase font-bold mr-6">
+        
+        <NavLink to="/my-cart">My Cart</NavLink>
+      </span>
+      <span className="text-xl uppercase font-bold mr-6">
+        
+        <NavLink to="/Login">Login</NavLink>
+      </span>
+      
     </>
   );
 

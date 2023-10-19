@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import HomePage from "./HomePage";
+import Header from "../components/Header";
 
 const Layout1Page = () => {
     return (
         <div>
-            <HomePage></HomePage>
+           <Header></Header>
             <Outlet> </Outlet>
 
         </div>

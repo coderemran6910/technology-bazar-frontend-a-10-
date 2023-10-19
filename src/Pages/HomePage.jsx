@@ -1,12 +1,16 @@
-import Header from "../components/Header";
+
 import SliderBanner from "../components/SliderBanner/SliderBanner";
+import BrandsPage from "./BrandsPage";
 
 const HomePage = () => {
     return (
-        <div>
-            <Header></Header>
-            <SliderBanner></SliderBanner>
+        <>
+        <div > 
+            <SliderBanner ></SliderBanner>
         </div>
+        
+        <BrandsPage></BrandsPage>
+        </>
     );
 };
 
