@@ -1,7 +1,36 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
+
+
+const handleAddToCard = (id) => {
+  console.log(id);
+
+  fetch("http://localhost:5000/cards", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product[0]),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if(data.acknowledged){
+        Swal.fire(
+          'Thanks!',
+          ' You added a card!',
+          'success',
+        )
+      }
+     
+    })
+}
+
+
+
   return (
     <div className="card card-side bg-base-100 shadow-xl">
       <figure>
@@ -21,7 +50,7 @@ const ProductDetails = () => {
 
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Add to Card </button>
+          <button onClick={()=>handleAddToCard(product[0]._id)} className="btn btn-primary">Add to Card </button>
         </div>
       </div>
     </div>

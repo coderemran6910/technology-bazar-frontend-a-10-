@@ -4,14 +4,12 @@ import { useNavigate } from "react-router-dom";
 const SingleBrandsProducts = ({ product }) => {
   const { _id, name, brand, type, price, shortDescription, image } = product;
   const navigate = useNavigate();
-  const [singleProduct, setSingleProduct] = useState([]);
 
   const handleDetails = (name, id) => {
     fetch(`http://localhost:5000/products/${brand}/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        setSingleProduct(data);
         navigate(`/products/${name}/${id}`);
       });
   };

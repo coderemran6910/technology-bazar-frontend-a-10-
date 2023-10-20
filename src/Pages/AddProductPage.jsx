@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Swal from "sweetalert2";
-import BrandsPage from "./BrandsPage";
+// import BrandsPage from "./BrandsPage";
 
 const AddProductPage = () => {
   const [selectedRatings, setSelectedRating] = useState(''); 
