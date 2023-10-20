@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
-
+ import {toast} from "react-toastify";
 const ProductDetails = () => {
   const product = useLoaderData();
 
@@ -18,6 +18,7 @@ const handleAddToCard = (id) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
+      toast(data.message);
       if(data.acknowledged){
         Swal.fire(
           'Thanks!',

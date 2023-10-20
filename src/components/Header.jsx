@@ -10,12 +10,11 @@ const Header = () => {
       <span className="text-xl uppercase font-bold mr-6">
         <NavLink to="/add-product">Add Product</NavLink>
       </span>
-      
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/my-cart">My Cart</NavLink>
-      </span>
       <span className="text-xl uppercase font-bold mr-6">
         <NavLink to="/brandsPage">Brands</NavLink>
+      </span>
+      <span className="text-xl uppercase font-bold mr-6">
+        <NavLink to="/carts">My Cart</NavLink>
       </span>
       <span className="text-xl uppercase font-bold mr-6">
         <NavLink to="/show-products">Products</NavLink>
