@@ -61,14 +61,14 @@ const ShowBrandsProducts = () => {
   </div>
 </div> 
     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-    <a href="#slide3" className="btn btn-circle">❮</a> 
+    <a href="#slide3" className="btn btn-circle">❮</a>
       <a href="#slide1" className="btn btn-circle">❯</a>
     </div>
   </div> 
 </div>
 </div>
 
-<h2 className="text-3xl font-bold text-center py-20">  All {name} Products here  </h2>
+<h2 className="text-3xl font-bold text-center py-20">  All <span className=" font-bold text-blue-800">{name}</span> Products here  </h2>
     <div className="max-w-7xl mx-auto">
       {brandsProducts.length > 0 ? (
         brandsProducts.map((product) => (

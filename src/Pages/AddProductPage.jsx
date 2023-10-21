@@ -56,8 +56,11 @@ const AddProductPage = () => {
 
   return (
     <div className="bg-[#F4F3F0] p-24">
-      <h2 className="text-3xl font-extrabold">Add a Product</h2>
-      <form onSubmit={handleAddProduct}>
+      <div className="py-10">
+      <h2 className="text-3xl md:text-5xl font-extrabold text-center ">Add a Product</h2>
+      <p className="text-center text-md md:text-xl  md:max-w-7xl mx-auto mt-5"> You can add a new product by filling the form below.  </p>
+      </div>
+      <form className="max-w-7xl mx-auto " onSubmit={handleAddProduct}>
         <div className="md:flex mb-8 gap-5">
           <div className="form-control md:w-1/2">
             <label className="label">
@@ -189,7 +192,7 @@ const AddProductPage = () => {
         <input
           type="submit"
           value="Add product"
-          className="btn bg-slate-300 btn-block"
+          className="btn bg-blue-800 btn-block text-white "
         />
       </form>
     </div>
