@@ -7,7 +7,7 @@ const SingleBrandsProducts = ({ product }) => {
   const navigate = useNavigate();
 
   const handleDetails = (name, id) => {
-    fetch(`http://localhost:5000/products/${brand}/${id}`)
+    fetch(`https://technology-electronics-three.vercel.app/products/${brand}/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -17,17 +17,19 @@ const SingleBrandsProducts = ({ product }) => {
 
   return (
     <div className="flex shadow-xl mb-10 h-52">
-      <div className="w-full md:w-96 ">
-        <div className="relative w-full h-full aspect-w-1 aspect-h-1">
+
+      <div className=" md:w-96 ">
+        <div className="relative w-40 md:w-96 h-full aspect-w-1 aspect-h-1">
           <img
             src={image}
             alt="Album"
-            className="absolute w-full h-full rounded-xl object-cover"
+            className="absolute w-full h-full rounded-l-xl object-cover"
           />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-between px-10">
-        <div className=" text-left  lg:text-left lg:ml-5 w-auto">
+
+      <div className="flex flex-col lg:flex-row ml-5 justify-between">
+        <div className=" text-left lg:ml-5 w-auto lg:w-[500px] mr-0 lg:mr-10">
           <h2 className="card-title text-xl md:text-3xl ">{name}</h2>
           <p className=" text-sm pr-2">{shortDescription}</p>
 
@@ -41,7 +43,8 @@ const SingleBrandsProducts = ({ product }) => {
             </button>
           </div>
         </div>
-        <div className="flex-1 w-40">
+
+        <div className="flex-1 w-40 text-left">
           <div className="btn-group lg:btn-group-horizontal lg:btn-group-vertical mt-10">
             <Link to={`/update/${brand}/${_id}`}>
               <button className="btn btn-active w-30 md:w-40   "> Update </button>

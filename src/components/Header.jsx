@@ -8,7 +8,7 @@ const Header = () => {
 
   const menmu = (
     <>
-      
+
         <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/">Home</NavLink>
         <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/add-product">Add Product</NavLink>
         <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/brandsPage">Brands</NavLink>
@@ -19,6 +19,7 @@ const Header = () => {
   );
 
   const handleLogOut = () => {
+
     logOut()
       .then(() => {
         Swal.fire({
@@ -34,7 +35,7 @@ const Header = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-2xl max-w-7xl mx-auto">
+      <div className="navbar bg-base-100 shadow-2xl max-w-7xl mx-auto px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

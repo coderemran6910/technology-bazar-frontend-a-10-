@@ -33,7 +33,7 @@ const AddProductPage = () => {
  
 
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://technology-electronics-three.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,7 +53,7 @@ const AddProductPage = () => {
       }
     })
   };
-
+  
   return (
     <div className="bg-[#F4F3F0] p-24">
       <div className="py-10">

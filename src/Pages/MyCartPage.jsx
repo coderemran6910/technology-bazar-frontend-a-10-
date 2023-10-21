@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 // import SingleCart from "../components/SingleCart";
 
 const MyCartPage = () => {
@@ -8,7 +9,7 @@ const MyCartPage = () => {
 
     const handleDelete =(id)=>{
         
-        fetch(`http://localhost:5000/cards/${id}`,{
+        fetch(`https://technology-electronics-three.vercel.app/cards/${id}`,{
             method:'DELETE'
         })
         .then(res=>res.json())
@@ -30,29 +31,28 @@ const MyCartPage = () => {
     console.log(carts);
     return (
        <>
-       <h2 className="text-3xl font-extrabold"> My All Carts </h2>
-       <div className="">
+       <h2 className="text-3xl md:text-4xl font-extrabold py-10 text-center"> My All Carts </h2>
+       <div className=" max-w-7xl mx-auto">
            {
                carts.map(cart => {
                 const {name, _id, brand, type, price, shortDescription, image} = cart
 
                 return (
-                    <div key={_id} className="card lg:card-side   shadow-xl mb-10">
-                    <figure className="w-3/12 h-96">
+                    <div key={_id} className="flex justify-between shadow-xl h-40  mb-10 border">
+                    <figure className=" w-1/3">
                       <img
                         src={image}
                         alt="Album"
-                        className="rounded-xl w-full h-full object-cover"
+                        className="rounded-xl w-96 h-full object-cover"
                       />
                     </figure>
-                    <div className="card-body">
-                      <h2 className="card-title text-4xl p-5">{name}</h2>
-                      <p className="p-5 text-xl">{shortDescription}</p>
-                      <div className="card-actions justify-end">
-                       <h3>{price}</h3>
-              
+                    <div className="ml-2 w-3/4" >
+                      <h2 className="card-title text-xl md:text-3xl ">{name}</h2>
+                      <p className=" text-sm py-3"> {shortDescription.slice( 0, 50)}...</p>
+
+                      <div className=" flex justify-around space-x-1 mt-1">
+                        <button className="btn btn-outline btn-success"> Price: {price}$</button>
                         <button onClick={() => handleDelete(_id)} className="btn btn-warning">Remove</button>
-                        
                       </div>
                     </div>
                   </div>
@@ -64,5 +64,9 @@ const MyCartPage = () => {
        </>
     );
 };
+
+MyCartPage.propTypes = {
+    carts: PropTypes.array
+}
 
 export default MyCartPage;

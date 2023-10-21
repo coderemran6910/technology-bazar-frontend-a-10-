@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <HomePage />,
-                loader : async()=> await fetch('http://localhost:5000/brands')
+                loader : async()=> await fetch('https://technology-electronics-three.vercel.app/brands')
             },
             {
                 path: "/login",
@@ -43,22 +43,22 @@ const router = createBrowserRouter([
             {
                 path: '/show-products',
                 element: <ShowProducts />,
-                loader : async()=> await fetch('http://localhost:5000/products')
+                loader : async()=> await fetch('https://technology-electronics-three.vercel.app/products')
             },
             {
                 path: "/brandsPage",
                 element: <BrandsPage />,
-                loader : async()=> await fetch('http://localhost:5000/brands')
+                loader : async()=> await fetch('https://technology-electronics-three.vercel.app/brands')
             },
             {
                 path: "/products/:name",
                 element: <ShowBrandsProducts></ShowBrandsProducts>,
-               loader: ({params})=> fetch(`http://localhost:5000/products/${params.name}`)
+               loader: ({params})=> fetch(`https://technology-electronics-three.vercel.app/products/${params.name}`)
             },
             {
                 path: "/products/:brand/:id",
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand}/${params.id}`)
+                loader: ({params})=> fetch(`https://technology-electronics-three.vercel.app/products/${params.brand}/${params.id}`)
             },
             {
                 path: "/login",
@@ -71,12 +71,12 @@ const router = createBrowserRouter([
             {
                 path: "/carts",
                 element: <PrivateRoute><MyCartPage /></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5000/cards')
+                loader: ()=>fetch('https://technology-electronics-three.vercel.app/cards')
             },
             {
                 path: "/update/:brand/:id",
                 element: <PrivateRoute><ProductUpdate></ProductUpdate></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand}/${params.id}`)
+                loader: ({params})=> fetch(`https://technology-electronics-three.vercel.app/products/${params.brand}/${params.id}`)
             }
         ]
 

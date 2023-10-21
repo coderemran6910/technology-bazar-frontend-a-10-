@@ -15,7 +15,7 @@ const SingleBrand = ({ product }) => {
 
 
   const handleBrand =(name)=>{
-    fetch(`http://localhost:5000/products/${name}`)
+    fetch(`https://technology-electronics-three.vercel.app/products/${name}`)
     .then(res => res.json())
     .then((data) => {
       setBrandProducts(data);
@@ -28,7 +28,7 @@ const SingleBrand = ({ product }) => {
 
 
   return (
-    <div className=" w-44 h-44 shadow-2xl shadow-black" onClick={()=>handleBrand(name)}>
+    <div className=" w-30 md:w-44 h-44 shadow-2xl shadow-black" onClick={()=>handleBrand(name)}>
       <div
         key={_id}
         className="stats shadow flex justify-around progress-info  h-52 cursor-pointer"

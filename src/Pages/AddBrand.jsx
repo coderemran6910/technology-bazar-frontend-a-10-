@@ -10,7 +10,7 @@ const AddBrand = () => {
 
         const brand = { image, name };
 
-        fetch("http://localhost:5000/brands", {
+        fetch("https://technology-electronics-three.vercel.app/brands", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

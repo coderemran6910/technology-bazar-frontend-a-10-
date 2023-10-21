@@ -6,7 +6,7 @@ const ShowProducts = () => {
     console.log(products);
   return (
     <>
-    <h2 className="text-3xl font-extrabold text-center  mb-20"> Products : {products.length}</h2>
+    <h2 className="text-3xl md:text-4xl font-extrabold text-center my-20  mb-20"> Total Product : {products.length}</h2>
     <div className="max-w-7xl mx-auto">
       
         {

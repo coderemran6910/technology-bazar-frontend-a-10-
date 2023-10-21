@@ -28,7 +28,7 @@ const ProductUpdate = () => {
 
 
 
-      //   fetch(`http://localhost:5000/products/${_id}`, {
+      //   fetch(`https://technology-electronics-three.vercel.app/products/${_id}`, {
       //     method: 'PUT',
       //     headers: {
       //       'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const ProductUpdate = () => {
  
     return (
         <div className="bg-[#F4F3F0] p-24">
-      <h2 className="text-3xl font-extrabold">Update text-hide Product</h2>
+      <h2 className="text-3xl font-extrabold">Update  Product</h2>
       <form className="mt-10">
         <div className="md:flex mb-8 gap-5">
           <div className="form-control md:w-1/2">
@@ -185,7 +185,7 @@ const ProductUpdate = () => {
         <input
           type="submit"
           value="Update  product"
-          className="btn bg-slate-300 btn-block"
+          className="btn  bg-primary text-white btn-block"
         />
       </form>
     </div>

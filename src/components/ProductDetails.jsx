@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const { user } = useContext(AuthContext);
 
   const handleAddToCard = () => {
-    fetch("http://localhost:5000/cards", {
+    fetch("https://technology-electronics-three.vercel.app/cards", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,10 +34,10 @@ const ProductDetails = () => {
 
   return (
     <>
-    <h2 className="text-4xl text-center my-10 font-bold "> About <span className="text-primary"> {product[0].name}</span></h2>
+    <h2 className=" text-3xl md:text-4xl text-center my-10 font-bold "> About <span className="text-primary"> {product[0].name}</span></h2>
     <div className=" bg-base-100 shadow-xl my-20">
-      <figure className="  w-full h-full">
-        <img src={product[0].image} alt="Movie" className="h-full w-full" />
+      <figure className="  w-full h-[50vh]">
+        <img src={product[0].image} alt="Movie" className="h-full w-full object-cover" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-primary"> {product[0].name} </h2>
