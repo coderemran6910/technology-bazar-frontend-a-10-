@@ -1,5 +1,6 @@
 import {useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 // import { ProductsProvider } from "../Provider/ProductsProvider";
 // import Swal from "sweetalert2";
 
@@ -17,7 +18,6 @@ const SingleBrand = ({ product }) => {
     fetch(`http://localhost:5000/products/${name}`)
     .then(res => res.json())
     .then((data) => {
-      console.log(data);
       setBrandProducts(data);
       navigate(`/products/${name}`);
     })
@@ -28,7 +28,7 @@ const SingleBrand = ({ product }) => {
 
 
   return (
-    <div onClick={()=>handleBrand(name)}>
+    <div className=" w-44 h-44 shadow-2xl shadow-black" onClick={()=>handleBrand(name)}>
       <div
         key={_id}
         className="stats shadow flex justify-around progress-info  h-52 cursor-pointer"
@@ -43,5 +43,9 @@ const SingleBrand = ({ product }) => {
     </div>
   );
 };
+
+SingleBrand.propTypes = {
+  product: PropTypes.object,
+}
 
 export default SingleBrand;

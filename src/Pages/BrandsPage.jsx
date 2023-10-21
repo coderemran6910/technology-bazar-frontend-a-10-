@@ -10,9 +10,12 @@ const BrandsPage = () => {
 
   return (
    <>
-   <div className="py-20">
-   <h2 className="text-3xl font-extrabold text-center  my-20">Brands</h2>
-   <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-6 gap-10 max-w-7xl mx-auto  place-items-end">
+   <div>
+   <div className="my-20 ">
+   <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-5">Brands</h2>
+   <p className="text-center text-lg md:text-xl  md:max-w-7xl mx-auto"> Here you can find all the brands we have in our store  </p>
+   </div>
+   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-20 max-w-7xl mx-auto  h-auto  place-items-center pb-20">
       {
         products.map(product => <SingleBrand key={product._id} product={product} ></SingleBrand>)
       }
