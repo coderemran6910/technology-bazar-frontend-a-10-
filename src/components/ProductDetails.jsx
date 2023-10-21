@@ -1,24 +1,35 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
- import {toast} from "react-toastify";
+import { AuthContext } from "../Provider/AuthProvider";
+
 const ProductDetails = () => {
   const product = useLoaderData();
+  const {user} = useContext(AuthContext)
+
+  
 
 
-const handleAddToCard = (id) => {
-  console.log(id);
+const handleAddToCard = () => {
 
   fetch("http://localhost:5000/cards", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(product[0]),
+      body: JSON.stringify({
+        name: product[0].name,
+        brand: product[0].brand,
+        type: product[0].type,
+        price: product[0].price,
+        shortDescription: product[0].shortDescription,
+        image: product[0].image,
+        email: user.email
+      }),
     })
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      toast(data.message);
       if(data.acknowledged){
         Swal.fire(
           'Thanks!',
@@ -51,7 +62,7 @@ const handleAddToCard = (id) => {
 
 
         <div className="card-actions justify-end">
-          <button onClick={()=>handleAddToCard(product[0]._id)} className="btn btn-primary">Add to Card </button>
+          <button onClick={()=>handleAddToCard(product[0]._id)} className="btn btn-primary">Add to Cart  </button>
         </div>
       </div>
     </div>

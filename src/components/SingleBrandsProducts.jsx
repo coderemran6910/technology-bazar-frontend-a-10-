@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SingleBrandsProducts = ({ product }) => {
   const { _id, name, brand, type, price, shortDescription, image } = product;
   const navigate = useNavigate();
+
 
   const handleDetails = (name, id) => {
     fetch(`http://localhost:5000/products/${brand}/${id}`)
@@ -36,7 +37,7 @@ const SingleBrandsProducts = ({ product }) => {
         </div>
         <div className="flex-1 w-40">
           <div className="btn-group btn-group-vertical ">
-            <button className="btn btn-active w-40 mb-5"> Update </button>
+            <Link to={`/update/${brand}/${_id}`}><button className="btn btn-active w-40 mb-5"> Update </button></Link>
             <button
               onClick={() => handleDetails(brand, _id)}
               className="btn btn-active w-40"

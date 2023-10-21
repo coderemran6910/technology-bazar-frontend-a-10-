@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const LoginPage = () => {
-  const { login } = useContext(AuthContext);
+    const { login, loginWithGoogle} = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLogin = (e) => {
@@ -42,7 +42,30 @@ const LoginPage = () => {
           text: error.message,
         });
       });
+
   };
+
+  const handleGoogleLogin = () =>{
+    // LOgin with Google 
+loginWithGoogle()
+.then(result => {
+    const loggedUser = result.user
+    console.log(loggedUser);
+    Swal.fire(
+        'Thanks!',
+        'Login is Successful !',
+        'success'
+    )
+})
+.catch(error => {
+    console.log(error);
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.message,
+    })
+})
+}
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -86,7 +109,7 @@ const LoginPage = () => {
             )}
             <div className="form-control mt-6">
               <button className="btn btn-primary mb-5">Login</button>
-              <button className="btn btn-primary">Login with google</button>
+              <button onClick={handleGoogleLogin} className="btn btn-primary">Login with google</button>
             </div>
             <p>
               Do not have an account?{" "}

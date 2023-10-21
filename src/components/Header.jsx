@@ -1,33 +1,40 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 // import logo from "https://i.ibb.co/3ss3566/avnet-inc-business-electronics-internet-of-things-business.jpg"
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const menmu = (
     <>
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/">Home</NavLink>
-      </span>
       
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/add-product">Add Product</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/brandsPage">Brands</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/carts">My Cart</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/show-products">Products</NavLink>
-      </span>
-      <span className="text-xl uppercase font-bold mr-6">
-        <NavLink to="/Login">Login</NavLink>
-      </span>
+        <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/">Home</NavLink>
+        <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/add-product">Add Product</NavLink>
+        <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/brandsPage">Brands</NavLink>
+        <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/carts">My Cart</NavLink>
+        <NavLink className=" text-sm md:text-lg px-5 py-2 uppercase font-bold mr-6 rounded-md"  to="/show-products">Products</NavLink>
+      
     </>
   );
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Log Out Successful",
+          showConfirmButton: false,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 shadow-2xl max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,24 +55,42 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3  z-50 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {menmu}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <a className=" normal-case text-xl">
+            <div className="flex items-center w-20" >
             <img
-              className=" w-32 "
-              src="https://i.ibb.co/t2KY0Sw/bg-remove.png"
+              className=" w-full "
+              src="https://i.ibb.co/YP6R9H9/logo.png"
               alt="logo"
             />
+            </div>
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{menmu}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Login</a>
+          {user ? (
+            <>
+             <div className="flex items-center gap-10">
+             <div className="avatar">
+                <div className="w-12 rounded">
+                  <img
+                    src={user?.photoURL}
+                    alt="Profile"
+                  />
+                </div>
+              </div>
+             <button className="btn btn-outline btn-warning"> <Link  onClick={handleLogOut}>Log Out</Link></button>
+             </div>
+            </>
+          ) : (
+            <button  className="btn btn-outline btn-primary "> <Link to={"/login"}>Login</Link></button>
+          )}
         </div>
       </div>
     </div>
