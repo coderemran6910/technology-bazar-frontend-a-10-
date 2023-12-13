@@ -1,12 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import PropTypes from "prop-types";
+import { useState } from "react";
 // import SingleCart from "../components/SingleCart";
 
 const MyCartPage = () => {
     const carts = useLoaderData()
 
-
+const [deletedCart, setDeletedCart] = useState(carts)
     const handleDelete =(id)=>{
         
         fetch(`https://technology-electronics-three.vercel.app/cards/${id}`,{
@@ -21,6 +22,9 @@ const MyCartPage = () => {
                     ' You deleted a cart!',
                     'success',
                 )
+
+                const remaining = carts.filter(cart => cart.id !== id)
+                setDeletedCart(remaining)
             }
         })
     }
@@ -34,8 +38,8 @@ const MyCartPage = () => {
        <h2 className="text-3xl md:text-4xl font-extrabold py-10 text-center"> My All Carts </h2>
        <div className=" max-w-7xl mx-auto">
            {
-               carts.map(cart => {
-                const {name, _id, brand, type, price, shortDescription, image} = cart
+               deletedCart.map(cart => {
+                const {name, _id, price, shortDescription, image} = cart
 
                 return (
                     <div key={_id} className="flex justify-between shadow-xl h-40  mb-10 border">

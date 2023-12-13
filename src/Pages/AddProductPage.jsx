@@ -15,7 +15,7 @@ const AddProductPage = () => {
     const brand = form.brand.value;
     const type = form.type.value;
     const price = form.price.value;
-    const shortDescription = form.shortDesciption.value;
+    const shortDescription = form.shortDescription.value;
     const image = form.image.value;
 
     // Get the selected rating value

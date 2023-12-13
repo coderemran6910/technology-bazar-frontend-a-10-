@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-cart",
-                element: <MyCartPage />,
+                element: <PrivateRoute><MyCartPage /></PrivateRoute>,
             },
             {
                 path: "/add-brands",

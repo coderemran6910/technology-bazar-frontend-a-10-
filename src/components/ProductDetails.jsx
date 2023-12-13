@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import PrivateRoute from "./PrivateRoute";
 
 const ProductDetails = () => {
   const product = useLoaderData();
@@ -55,12 +56,14 @@ const ProductDetails = () => {
         </div>
 
         <div className="card-actions justify-end">
+         <PrivateRoute> 
           <button
             onClick={() => handleAddToCard(product[0]._id)}
             className="btn btn-primary"
           >
             Add to Cart{" "}
           </button>
+          </PrivateRoute>
         </div>
       </div>
     </div>
