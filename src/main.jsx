@@ -13,8 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
     <FloatingWhatsApp 
-     phone="+8801789039407" 
+     phoneNumber="+8801789039407" 
      message="Hello! I'm using WhatsApp." 
+     accountName="Coder emran"
      position="right" 
      size="60px" 
      backgroundColor="#25D366" 

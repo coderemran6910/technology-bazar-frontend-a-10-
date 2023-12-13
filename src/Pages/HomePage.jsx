@@ -1,4 +1,5 @@
 
+import LandingPage from "../components/LandingPagePhone";
 import SliderBanner from "../components/SliderBanner/SliderBanner";
 import AddProductPage from "./AddProductPage";
 import BrandsPage from "./BrandsPage";
@@ -12,6 +13,7 @@ const HomePage = () => {
         
         <BrandsPage></BrandsPage>
         <AddProductPage></AddProductPage>
+        <LandingPage />
 
         </>
     );
